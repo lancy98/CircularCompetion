@@ -16,4 +16,4 @@ MIT
 
 Screenshot
 ========
-![](Screenshots/app.png)
+<center>![](Screenshots/app.png)</center>
