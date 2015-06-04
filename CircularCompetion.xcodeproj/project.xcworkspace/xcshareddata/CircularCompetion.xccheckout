@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>940A236D-E47D-4546-A634-410AB69A67A8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>CircularCompetion</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E8535F285C8DC51EC14D64AE86D083FC60F581EA</key>
 		<string>https://github.com/lancy98/CircularCompetion.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CircularCompetion.xcodeproj</string>
+	<string>CircularCompetion.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E8535F285C8DC51EC14D64AE86D083FC60F581EA</key>
