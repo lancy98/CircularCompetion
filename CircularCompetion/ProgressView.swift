@@ -19,10 +19,12 @@ class ProgressView: UIView {
         label.font = UIFont.boldSystemFontOfSize(40)
         let percent = Int(internalProgress * 100)
         label.text = " \(percent)%"
+        
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
         addSubview(label)
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[label]", options: NSLayoutFormatOptions(0), metrics:  nil, views:["label": label]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[label]", options: NSLayoutFormatOptions(0), metrics:  nil, views:["label": label]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[label]|", options: NSLayoutFormatOptions(0), metrics:  nil, views:["label": label]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[label]|", options: NSLayoutFormatOptions(0), metrics:  nil, views:["label": label]))
     }
     
     // The value contains
