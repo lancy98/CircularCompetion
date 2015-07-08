@@ -9,10 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var progressView: ProgressView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        progressView.progress = 0.4
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,88 +8,89 @@
 
 import UIKit
 
-@IBDesignable
+/**
+This class can be used to show the completion in the form of Donot.
+*/
 class ProgressView: UIView {
     
     var label: UILabel!
+    var representationView: RepresentationView!
     
     override func awakeFromNib() {
-        label = UILabel(frame: bounds)
-        label.textAlignment = .Center
-        label.font = UIFont.boldSystemFontOfSize(40)
-        let percent = Int(internalProgress * 100)
-        label.text = " \(percent)%"
+        addRepresentationView()
+        addLabel()
         
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        addSubview(label)
-        
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[label]|", options: NSLayoutFormatOptions(0), metrics:  nil, views:["label": label]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[label]|", options: NSLayoutFormatOptions(0), metrics:  nil, views:["label": label]))
+        let angle: Double = -90.0
+        //The completion should start from top(i.e, 0 percent is at the top).
+        representationView!.transform = CGAffineTransformMakeRotation(CGFloat(angle.toRadians))
     }
     
-    // The value contains
-    @IBInspectable var progress: Double {
+    /**
+    Adds the label to the ProgressView.
+    */
+    func addLabel() {
+        label = UILabel(frame: bounds)
+        label.textAlignment = .Center
+        label.font = UIFont(name: "Helvetica-bold", size: 16)
+        let percent = Int(representationView!.progress * 100)
+        label.text = "\(percent)%"
+        
+        fillSubview(label)
+    }
+    
+    /**
+    Adds the representation view to ProgressView.
+    Representation view will display the donut progress indicator.
+    */
+    func addRepresentationView() {
+        representationView = RepresentationView(frame: bounds)
+        representationView.backgroundColor = UIColor.clearColor()
+        fillSubview(representationView)
+    }
+    
+    /** 
+    Progress that needs to be represented in the Donut bar.
+    */
+    var progress: Double {
         get {
-            return internalProgress
+            return representationView!.progress
         }
         set(inProgress) {
-            if inProgress > 0.0 && inProgress < 1.0 {
-                internalProgress = inProgress
-                let percent = Int(internalProgress * 100)
-                if label != nil {
-                    label.text = " \(percent)"
+            if inProgress >= 0.0 && inProgress <= 1.0 {
+                if representationView != nil{
+                    representationView!.progress = inProgress
+                    let percent = Int(inProgress * 100)
+                    if label != nil {
+                        label.text = " \(percent)%"
+                    }
                 }
             }
         }
     }
-    
-    private func toRad(degree: Double) -> Double {
-        return ((M_PI * degree) / 180.0)
-    }
-    
-    private var internalProgress: Double = 0.1
-    
-    private let safePadding = CGFloat(20.0)
-    private var radius: CGFloat {
-        return frame.size.width/2.0 - safePadding
-    }
-    
-    private var angle: Double {
-        return (360.0 * progress)
-    }
-    
-    private var bgColor: UIColor {
-        return UIColor.grayColor()
-    }
-    
-    private var competionCircleColor: UIColor {
-        return UIColor(red: 0.0, green: (126.0/255.0), blue: 0.0, alpha: 1.0)
-    }
-    
-    // Progress can be between 0.0 and 1.0.
-    private func drawProgress(progress: Double, rect: CGRect, color: UIColor) {
-    
-        let endAngle = CGFloat(M_PI*2.0*progress)
-        
-        let context = UIGraphicsGetCurrentContext()
-        CGContextAddArc(context, rect.size.width/2.0, rect.size.height/2.0, radius, 0, endAngle, 0)
-        
-        color.setStroke()
-        
-        CGContextSetLineWidth(context, 20)
-        CGContextSetLineCap(context, kCGLineCapButt)
-        
-        CGContextDrawPath(context, kCGPathStroke)
-    }
-    
-    override func drawRect(rect: CGRect) {
-        
-        super.drawRect(rect)
-        
-        //background circle.
-        drawProgress(1.0, rect: rect, color: bgColor)
-        // Competion circle.
-        drawProgress(progress, rect: rect, color: competionCircleColor)
-    }
+}
 
+extension UIView {
+    /**
+    This method can be called when you want to add a subview to the receiver and the subview should fill the receiver (i.e, subview frame = superview bounds),
+    
+    :param: subview The subview the should be added to the receiver.
+    */
+    func fillSubview(subview: UIView) {
+        subview.setTranslatesAutoresizingMaskIntoConstraints(false)
+        addSubview(subview)
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[subview]|", options: NSLayoutFormatOptions(0), metrics: nil, views: ["subview" : subview]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subview]|", options: NSLayoutFormatOptions(0), metrics: nil, views: ["subview" : subview]))
+    }
+}
+
+extension Double {
+    
+    /**
+    Use this method to convert the receiver value to radians.
+    Note: The receiver value is assumed to be in degrees before converting it into radians.
+    */
+    var toRadians: Double {
+        return ((M_PI * self) / 180.0)
+    }
 }

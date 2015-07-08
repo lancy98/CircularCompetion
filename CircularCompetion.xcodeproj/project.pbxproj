@@ -14,6 +14,7 @@
 		B11100F01B0F3B0B0038FB60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11100EE1B0F3B0B0038FB60 /* LaunchScreen.xib */; };
 		B11100FC1B0F3B0B0038FB60 /* CircularCompetionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11100FB1B0F3B0B0038FB60 /* CircularCompetionTests.swift */; };
 		B11101061B0F3B7C0038FB60 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11101051B0F3B7C0038FB60 /* ProgressView.swift */; };
+		B1A788741B4D14870099616C /* RepresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A788731B4D14870099616C /* RepresentationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		B11100FA1B0F3B0B0038FB60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B11100FB1B0F3B0B0038FB60 /* CircularCompetionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCompetionTests.swift; sourceTree = "<group>"; };
 		B11101051B0F3B7C0038FB60 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		B1A788731B4D14870099616C /* RepresentationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepresentationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				B11100E51B0F3B0B0038FB60 /* AppDelegate.swift */,
 				B11100E71B0F3B0B0038FB60 /* ViewController.swift */,
 				B11101051B0F3B7C0038FB60 /* ProgressView.swift */,
+				B1A788731B4D14870099616C /* RepresentationView.swift */,
 				B11100E91B0F3B0B0038FB60 /* Main.storyboard */,
 				B11100EC1B0F3B0B0038FB60 /* Images.xcassets */,
 				B11100EE1B0F3B0B0038FB60 /* LaunchScreen.xib */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B11100E81B0F3B0B0038FB60 /* ViewController.swift in Sources */,
+				B1A788741B4D14870099616C /* RepresentationView.swift in Sources */,
 				B11100E61B0F3B0B0038FB60 /* AppDelegate.swift in Sources */,
 				B11101061B0F3B7C0038FB60 /* ProgressView.swift in Sources */,
 			);
@@ -413,6 +417,7 @@
 				B11101011B0F3B0B0038FB60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B11101021B0F3B0B0038FB60 /* Build configuration list for PBXNativeTarget "CircularCompetionTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				B11101041B0F3B0B0038FB60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
