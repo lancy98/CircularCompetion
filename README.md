@@ -3,7 +3,7 @@ iOS component writtern in swift to display progress
 
 Usage
 ========
-1. Drag the <b>ProgressView.swift</b> file in your project.
+1. Drag the <b>ProgressView.swift</b> and <b>RepresentationView.swift</b> file in your project.
 
 2. Select the class name as `ProgressView` as shown in screenshot.      
 ![](Screenshots/custom_class.png)
