@@ -54,9 +54,9 @@ class RepresentationView: UIView {
     Draws the progress to the view in the form of donut.
     Progress can be between 0.0 and 1.0.
     
-    :param: progress The progress value to be shown in the view.
-    :param: rect The rectangle in which the progress needs to be drawn.
-    :param: color The color that depicts the progress.
+    - parameter progress: The progress value to be shown in the view.
+    - parameter rect: The rectangle in which the progress needs to be drawn.
+    - parameter color: The color that depicts the progress.
     */
     private func drawProgress(progress: Double, rect: CGRect, color: UIColor) {
         
@@ -69,9 +69,9 @@ class RepresentationView: UIView {
         color.setStroke()
         
         CGContextSetLineWidth(context, circleWidth)
-        CGContextSetLineCap(context, kCGLineCapButt)
+        CGContextSetLineCap(context, CGLineCap.Butt)
         
-        CGContextDrawPath(context, kCGPathStroke)
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
     }
     
     override func drawRect(rect: CGRect) {

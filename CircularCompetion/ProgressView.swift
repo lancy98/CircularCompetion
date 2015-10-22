@@ -73,14 +73,14 @@ extension UIView {
     /**
     This method can be called when you want to add a subview to the receiver and the subview should fill the receiver (i.e, subview frame = superview bounds),
     
-    :param: subview The subview the should be added to the receiver.
+    - parameter subview: The subview the should be added to the receiver.
     */
     func fillSubview(subview: UIView) {
-        subview.setTranslatesAutoresizingMaskIntoConstraints(false)
+        subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[subview]|", options: NSLayoutFormatOptions(0), metrics: nil, views: ["subview" : subview]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subview]|", options: NSLayoutFormatOptions(0), metrics: nil, views: ["subview" : subview]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[subview]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["subview" : subview]))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subview]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["subview" : subview]))
     }
 }
 
